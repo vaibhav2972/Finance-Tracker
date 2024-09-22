@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal Finance Tracker</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="main-container">
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <h1>Finance Tracker</h1>
+        </div>
+        <nav class="nav">
+          <ul>
+            <li><a href="#budget">Set Budget</a></li>
+            <li><a href="#expense">Add Expense</a></li>
+            <li><a href="#savings-goal">Savings Goal</a></li>
+            <li><a href="#trends">Expense Trends</a></li>
+            <li><a href="#summary">Summary</a></li>
+            <li><a href="#currency-conversion">Currency Conversion</a></li>
+            <li><a href="#export">Export</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="dashboard">
+        <header class="dashboard-header">
+          <h2>Personal Finance Tracker</h2>
+          <p>Manage your budget and track your expenses effectively.</p>
+        </header>
+
+        <div class="dashboard-cards">
+          <!-- Budget Card -->
+          <div class="card first-card">
+            <h3>Set Budget</h3>
+            <div class="card-content">
+              <input
+                type="number"
+                id="budget"
+                placeholder="Enter your budget"
+              />
+              <button id="set-budget">Set Budget</button>
+              <h4>Current Budget: <span id="display-budget">Rs. 0</span></h4>
+            </div>
+          </div>
+
+          <!-- Monthly Expense Card -->
+          <div class="card monthly-expense">
+            <h3>Track Monthly Expense</h3>
+            <select id="month-selector">
+              <option value="0">January</option>
+              <option value="1">February</option>
+              <option value="2">March</option>
+              <option value="3">April</option>
+              <option value="4">May</option>
+              <option value="5">June</option>
+              <option value="6">July</option>
+              <option value="7">August</option>
+              <option value="8">September</option>
+              <option value="9">October</option>
+              <option value="10">November</option>
+              <option value="11">December</option>
+            </select>
+            <input
+              type="number"
+              id="monthly-expense"
+              placeholder="Enter expense amount"
+            />
+            <button id="add-monthly-expense">Add Monthly Expense</button>
+          </div>
+        </div>
+
+        <div class="dashboard-cards" id="expense">
+          <!-- Expense Card -->
+          <div class="card expense-card">
+            <h3>Add Expense</h3>
+            <div class="expense-inputs">
+              <select id="category">
+                <option value="Food">Food</option>
+                <option value="Rent">Rent</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Travel">Travel</option>
+                <option value="Other">Other</option>
+              </select>
+              <input type="number" id="amount" placeholder="Amount" />
+              <input type="text" id="description" placeholder="Description" />
+              <button id="add-expense">Add Expense</button>
+            </div>
+          </div>
+
+          <!-- Charts Card -->
+          <div class="card charts-card">
+            <h3>Expense Distribution (Current Month)</h3>
+            <div class="chart-container">
+              <canvas id="expense-chart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Savings Goal Section -->
+        <section id="savings-goal">
+          <h3>Savings Goal</h3>
+          <form id="savings-form">
+            <input
+              type="number"
+              id="savings-goal-input"
+              placeholder="Enter savings goal amount"
+            />
+            <button type="button" id="set-goal">Set Savings Goal</button>
+          </form>
+          <span id="savings-goal-display">Rs. 0</span>
+        </section>
+
+        <!-- Expense Trends Section -->
+        <section id="trends">
+          <h3>Expense Trends & Forecast</h3>
+          <div class="chart-container">
+            <canvas id="trends-chart"></canvas>
+          </div>
+        </section>
+
+        <section class="expense-list-section" id="summary">
+          <h3>Expense List</h3>
+          <ul id="expense-list"></ul>
+        </section>
+        <div class="summary-section">
+          <h3>Summary</h3>
+          <p>Total Expenses: <span id="total-expenses">Rs. 0</span></p>
+          <p>Remaining: <span id="remaining-budget">Rs. 0</span></p>
+        </div>
+        <section id="currency-conversion" class="currency-conversion">
+          <h3>Currency Conversion</h3>
+          <select id="currency-selector">
+            <option value="USD" selected>USD - US Dollar</option>
+            <option value="EUR">EUR - Euro</option>
+            <option value="JPY">JPY - Japanese Yen</option>
+            <option value="GBP">GBP - British Pound</option>
+            <option value="AUD">AUD - Australian Dollar</option>
+            <option value="CHF">CHF - Swiss Franc</option>
+            <option value="SGD">SGD - Singapore Dollar</option>
+          </select>
+          <button id="convert-currency">Convert</button>
+          <div id="conversion-results">
+            <p>Converted Budget: <span id="converted-budget">Rs. 0</span></p>
+            <p>Converted Expenses: <span id="converted-expense">Rs. 0</span></p>
+          </div>
+        </section>
+
+        <!-- Export Data Section -->
+        <section id="export">
+          <h3>Export Monthly Expense</h3>
+          <button class="csv-export-btn" id="export-csv">
+            <i class="fa fa-download" aria-hidden="true"></i>
+            Export to CSV
+          </button>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

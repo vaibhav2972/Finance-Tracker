@@ -1,0 +1,545 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
+}
+
+body,
+html {
+  height: 100%;
+  margin: 0;
+  background-color: #f3f4f6; 
+}
+
+
+.main-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+
+.sidebar {
+  background-color: #1a202c; 
+  color: #fff;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  transition: width 0.3s;
+}
+
+.sidebar-header h1 {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #edf2f7; 
+}
+
+.nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.nav ul li {
+  margin: 15px 0;
+}
+
+.nav ul li a {
+  text-decoration: none;
+  color: #e2e8f0;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.nav ul li a:hover {
+  color: #edf2f7; 
+}
+
+
+.dashboard {
+  flex-grow: 1;
+  margin-left: 250px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+
+.dashboard-header {
+  margin-bottom: 30px;
+}
+
+.dashboard-header h2 {
+  font-size: 28px;
+  color: #2b6cb0; 
+}
+
+.dashboard-header p {
+  font-size: 18px;
+  color: #4a5568;
+}
+
+
+.dashboard-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+
+.card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  min-width: 250px;
+  margin-bottom: 20px;
+  border-left: 5px solid #38a169; 
+}
+
+.first-card {
+  border-left: 5px solid #2b6cb0; 
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #2d3748;
+}
+
+.card-content input,
+.expense-inputs input,
+.expense-inputs select {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.card-content button,
+.expense-inputs button {
+  padding: 10px;
+  background-color: #38a169; 
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.card-content button:hover,
+.expense-inputs button:hover {
+  background-color: #2f855a;
+  transform: scale(1.05);
+}
+
+.card-content h4 {
+  padding-top: 16px;
+  font-size: 18px;
+}
+
+#display-budget {
+  font-size: 18px;
+  color: #2b6cb0; 
+}
+
+
+.expense-list-section {
+  margin-top: 30px;
+}
+
+.expense-list-section h3 {
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #2b6cb0; 
+}
+
+#expense-list {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+#expense-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #e2e8f0;
+  background-color: #fff;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+#expense-list li span {
+  flex-basis: 30%;
+  font-size: 16px;
+}
+
+#expense-list li div {
+  display: flex;
+  gap: 10px;
+}
+
+.edit-btn,
+.remove-btn {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  font-size: 14px;
+}
+
+.edit-btn {
+  background-color: #2b6cb0; 
+  color: #fff;
+}
+
+.edit-btn:hover {
+  background-color: #1a202c; 
+  transform: scale(1.05);
+}
+
+.remove-btn {
+  background-color: #e53e3e; 
+  color: #fff;
+}
+
+.remove-btn:hover {
+  background-color: #c53030;
+  transform: scale(1.05);
+}
+
+.summary-section {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  border-left: 5px solid #38a169; 
+}
+
+.summary-section h3 {
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #2b6cb0; 
+}
+
+.summary-section p {
+  font-size: 18px;
+  color: #2d3748;
+}
+
+
+.charts-card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  border-left: 5px solid #2b6cb0; 
+}
+
+.chart-container {
+  position: relative;
+  height: 250px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.chart-container canvas {
+  height: 100% !important;
+}
+
+
+#savings-goal {
+  background-color: #f7fafc;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+  border-left: 5px solid #38a169; 
+}
+
+#savings-goal h3 {
+  font-size: 22px;
+  color: #2b6cb0; 
+  margin-bottom: 15px;
+}
+
+#savings-form input {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+#savings-form button {
+  padding: 10px;
+  background-color: #38a169; 
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+#savings-form button:hover {
+  background-color: #2f855a; 
+  transform: scale(1.05);
+}
+
+#savings-goal-display {
+  font-size: 24px;
+  color: #2b6cb0; 
+}
+
+
+#trends {
+  background-color: #f7fafc;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+  border-left: 5px solid #2b6cb0; 
+}
+
+#trends h3 {
+  font-size: 22px;
+  color: #2b6cb0; 
+  margin-bottom: 15px;
+}
+
+#trends canvas {
+  width: 100%;
+  height: 250px;
+}
+
+
+#export {
+  background-color: #f7fafc;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+  text-align: center;
+  border-left: 5px solid #38a169; 
+}
+
+#export h3 {
+  font-size: 22px;
+  color: #2b6cb0; 
+  margin-bottom: 15px;
+}
+
+#export button {
+  padding: 10px;
+  background-color: #2b6cb0; 
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  font-size: 16px;
+}
+
+#export button:hover {
+  background-color: #1a202c; 
+  transform: scale(1.05);
+}
+
+
+.card.monthly-expense {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  min-width: 250px;
+  border-left: 5px solid #38a169; 
+}
+
+.card.monthly-expense h3 {
+  margin-bottom: 15px;
+  font-size: 20px;
+  color: #2d3748;
+}
+
+.card.monthly-expense select,
+.card.monthly-expense input,
+.card.monthly-expense button {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.card.monthly-expense select {
+  padding: 10px;
+}
+
+.card.monthly-expense input[type="number"] {
+  padding: 10px;
+}
+
+.card.monthly-expense button {
+  background-color: #38a169; 
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.card.monthly-expense button:hover {
+  background-color: #2f855a; 
+  transform: scale(1.05);
+}
+
+
+#currency-conversion {
+  background-color: #f7fafc;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+  border-left: 5px solid #2b6cb0; 
+}
+
+#currency-conversion h3 {
+  font-size: 26px;
+  color: #2b6cb0; 
+  margin-bottom: 10px;
+}
+
+#currency-selector  {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+#convert-currency {
+  padding: 10px;
+  background-color: #38a169; 
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  font-size: 16px;
+}
+
+#convert-currency:hover {
+  background-color: #2f855a; 
+  transform: scale(1.05);
+}
+
+#conversion-results {
+  margin-top: 20px;
+}
+
+#conversion-results p {
+  font-size: 18px;
+  color: #2d3748;
+}
+
+#converted-budget,
+#converted-expense {
+  font-weight: bold;
+  color: #2b6cb0; 
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding: 10px;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .dashboard {
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  .dashboard-cards {
+    flex-direction: column;
+  }
+
+  .card {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  #savings-goal,
+  #trends,
+  #export,
+  .monthly-expense-card {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  #savings-form input,
+  #savings-form button,
+  .monthly-expense-form input,
+  .monthly-expense-form button {
+    width: 100%;
+  }
+
+  .monthly-budget {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .monthly-budget select,
+  .monthly-budget input,
+  .monthly-budget button {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  
+  #expense-list li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #expense-list li span {
+    flex-basis: 100%;
+    margin-bottom: 5px;
+  }
+
+  #expense-list li div {
+    justify-content: flex-start;
+    gap: 5px;
+  }
+}
